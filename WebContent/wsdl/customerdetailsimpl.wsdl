@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CustomerDetailsImplService" targetNamespace="http://service.poc.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.poc.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://service.poc.com/" schemaLocation="customerdetailsimpl_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="greetCustomer">
+    <wsdl:part name="parameters" element="tns:greetCustomer">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="retrieveCustomerDetailsResponse">
+    <wsdl:part name="parameters" element="tns:retrieveCustomerDetailsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="retrieveCustomerDetails">
+    <wsdl:part name="parameters" element="tns:retrieveCustomerDetails">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="greetCustomerResponse">
+    <wsdl:part name="parameters" element="tns:greetCustomerResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CustomerDetailsImpl">
+    <wsdl:operation name="greetCustomer">
+      <wsdl:input name="greetCustomer" message="tns:greetCustomer">
+    </wsdl:input>
+      <wsdl:output name="greetCustomerResponse" message="tns:greetCustomerResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveCustomerDetails">
+      <wsdl:input name="retrieveCustomerDetails" message="tns:retrieveCustomerDetails">
+    </wsdl:input>
+      <wsdl:output name="retrieveCustomerDetailsResponse" message="tns:retrieveCustomerDetailsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomerDetailsImplServiceSoapBinding" type="tns:CustomerDetailsImpl">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="greetCustomer">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="greetCustomer">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="greetCustomerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveCustomerDetails">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="retrieveCustomerDetails">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="retrieveCustomerDetailsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerDetailsImplService">
+    <wsdl:port name="CustomerDetailsImplPort" binding="tns:CustomerDetailsImplServiceSoapBinding">
+      <soap:address location="http://localhost:8080/CustomerInformationService/services"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
